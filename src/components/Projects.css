@@ -1,0 +1,100 @@
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+    backdrop-filter: blur(8px);
+    /* Applies blur to the background */
+}
+
+/* Style for the card-body to make it opaque */
+.project-card .card-body {
+    background-color: transparent;
+    color: #4C7766;
+    /* Main text color */
+    padding: 13px;
+    /* Add padding for better spacing */
+    border-radius: 8px;
+    /* Rounded corners for a smoother look */
+}
+
+.dark-mode .project-card .card-body {
+    background-color: #121212;
+    /* Dark background for dark mode */
+    color: #4C7766;
+    /* Text color for dark mode */
+    padding: 13px;
+    border-radius: 8px;
+}
+
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+    /* Slightly enlarges the card */
+    box-shadow: 0 8px 16px rgba(76, 119, 102, 0.6);
+    /* Adds a shadow effect */
+    z-index: 1;
+    /* Ensures the card appears above other elements */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 90%;
+    transform: translateY(-50px);
+    animation: slideDown 0.3s ease forwards;
+}
+
+.dark-mode .modal-content {
+    background-color: #121212;
+    /* Dark background for dark mode */
+    color: #4C7766;
+    /* Text color for dark mode */
+    border-radius: 10px;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide-down Animation */
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Button Animation */
+.btn-outline-primary {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-outline-primary:hover {
+    background-color: #4C7766;
+    /* Hover background color */
+    color: #fff;
+    /* Hover text color */
+}

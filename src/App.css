@@ -1,0 +1,512 @@
+/* General Hover Animation */
+* {
+  transition: all 0.5s ease;
+}
+
+/* Contact Info Card */
+.contact-info-card {
+  background-color: #EBE6E0;
+  /* Light background */
+  color: #4C7766;
+  /* Text color */
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  text-align: left;
+}
+
+.dark-mode .contact-info-card {
+  background-color: #121212;
+  /* Dark background for dark mode */
+  color: #4C7766;
+  /* Text color in dark mode */
+}
+
+.contact-info-card a {
+  color: #4C7766;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contact-info-card a:hover {
+  text-decoration: underline;
+}
+
+.contact-icon {
+  margin-right: 8px;
+  color: #4C7766;
+}
+
+.dark-mode .contact-icon {
+  color: #4C7766;
+}
+
+
+
+/* Mouse Trail Styling */
+.mouse-trail {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background-color: rgba(76, 119, 102, 0.6);
+  /* Light green color */
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.8;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: scale(1);
+  animation: trailFade 0.5s forwards, trailExpand 0.3s forwards;
+  z-index: 1000;
+}
+
+/* Dark mode trail color */
+.dark-mode .mouse-trail {
+  background-color: rgba(255, 255, 255, 0.6);
+  /* White color in dark mode */
+}
+
+/* Animation for fading out the trail */
+@keyframes trailFade {
+  0% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Animation for expanding the trail */
+@keyframes trailExpand {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(2);
+  }
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+  backdrop-filter: blur(8px);
+  /* Applies blur to the background */
+  transition: backdrop-filter 0.3s ease;
+}
+
+.modal-overlay:hover {
+  backdrop-filter: blur(12px);
+  /* Increase blur slightly on hover */
+}
+
+/* Style for the card-body to make it opaque */
+.project-card .card-body {
+  background-color: transparent;
+  color: #4C7766;
+  /* Main text color */
+  padding: 13px;
+  /* Add padding for better spacing */
+  border-radius: 8px;
+  /* Rounded corners for a smoother look */
+}
+
+.dark-mode .project-card .card-body {
+  background-color: #121212;
+  /* Dark background for dark mode */
+  color: #4C7766;
+  /* Text color for dark mode */
+  padding: 13px;
+  border-radius: 8px;
+}
+
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 12px rgba(76, 119, 102, 0.5);
+  /* Adds a subtle shadow */
+  z-index: 1;
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 90%;
+  transform: translateY(-50px);
+  animation: slideDown 0.3s ease forwards;
+}
+
+.dark-mode .modal-content {
+  background-color: #121212;
+  /* Dark background for dark mode */
+  color: #4C7766;
+  /* Text color for dark mode */
+  border-radius: 10px;
+}
+
+/* Button Hover Effects */
+button,
+.navbar-nav .nav-link,
+.project-card,
+.skill-badge,
+.btn-outline-primary {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+button:hover,
+.btn-outline-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 8px rgba(76, 119, 102, 0.5);
+  /* Light green shadow */
+}
+
+/* Navbar Links Hover Effect */
+.navbar-nav .nav-link:hover {
+  color: #4C7766;
+  /* Change color on hover */
+  transform: scale(1.05);
+  text-shadow: 0px 0px 5px rgba(76, 119, 102, 0.5);
+}
+
+/* Skill Badge Hover Effect */
+.skill-badge:hover {
+  transform: scale(1.1);
+  background-color: #4C7766;
+  /* Change background color */
+  color: #EBE6E0;
+  /* Change text color */
+  box-shadow: 0 4px 8px rgba(76, 119, 102, 0.3);
+}
+
+/* Dark Mode Specific Hover Effects */
+.dark-mode button:hover,
+.dark-mode .btn-outline-primary:hover,
+.dark-mode .navbar-nav .nav-link:hover,
+.dark-mode .project-card:hover,
+.dark-mode .skill-badge:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.5);
+  /* White glow in dark mode */
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Slide-down Animation */
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Glow Effect */
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px #4C7766, 0 0 15px #4C7766, 0 0 20px #4C7766, 0 0 25px #4C7766;
+  }
+
+  50% {
+    box-shadow: 0 0 10px #4C7766, 0 0 20px #4C7766, 0 0 30px #4C7766, 0 0 40px #4C7766;
+  }
+
+  100% {
+    box-shadow: 0 0 5px #4C7766, 0 0 15px #4C7766, 0 0 20px #4C7766, 0 0 25px #4C7766;
+  }
+}
+
+/* Apply glow animation on hover for interactive elements in both modes */
+button:hover,
+.project-card:hover,
+.skill-badge:hover,
+.btn-outline-primary:hover {
+  animation: glow 1.5s ease-in-out infinite;
+}
+
+/* Applying the scale-up animation to all interactive elements */
+button,
+.project-card,
+.skill-badge,
+.btn-outline-primary {
+  animation: scaleUp 0.3s ease;
+}
+
+/* Fade-in and Scale-up Animation */
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  scroll-behavior: smooth;
+}
+
+.play-music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.dark-mode-toggle {
+  position: relative;
+  overflow: visible;
+}
+
+/* Full-Screen Spider Web Overlay */
+.spider-web-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle, transparent 20%, #4C7766 20%);
+  z-index: 1000;
+  pointer-events: none;
+  animation: webExpandFull 0.6s ease-out forwards;
+}
+
+@keyframes webExpandFull {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.8);
+  }
+}
+
+/* Skill Badges */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.skill-badge {
+  background-color: #EBE6E0;
+  padding: 10px 15px;
+  border-radius: 20px;
+  font-size: 1rem;
+  color: #4C7766;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.5s ease, transform 1.5s ease;
+}
+
+/* Dark Mode */
+.dark-mode {
+  background-color: #121212;
+  /* Dark background */
+  color: #4C7766;
+  /* Text color in dark mode */
+}
+
+.section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+}
+
+.fade-up-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Dark Mode - Header Text Color */
+.dark-mode .hero h1,
+.dark-mode .hero p {
+  color: #4C7766;
+}
+
+/* Dark Mode - Navbar */
+.dark-mode .navbar {
+  background-color: #121212;
+}
+
+.dark-mode .hero {
+  background-color: #121212;
+}
+
+.dark-mode .btn-primary {
+  background-color: #4C7766;
+  border-color: #4C7766;
+}
+
+.dark-mode .bg-light {
+  background-color: #121212 !important;
+}
+
+.dark-mode .navbar-nav .nav-link.active {
+  color: #4C7766;
+}
+
+.dark-mode .navbar-nav .nav-link {
+  color: #4C7766;
+}
+
+/* Navbar */
+.navbar-nav .nav-item .nav-link {
+  color: #4C7766;
+  padding: 10px 20px;
+  font-weight: bold;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+  color: #4C7766;
+}
+
+.navbar-nav .nav-link.active {
+  opacity: 1;
+}
+
+.navbar-brand {
+  color: #4C7766;
+}
+
+/* Hero Section */
+.hero {
+  background-color: #EBE6E0;
+  color: #4C7766;
+  padding: 150px 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+
+/* Profile Photo Styling */
+.profile-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Active navbar link styling */
+.navbar-nav .nav-link.active {
+  font-weight: bold;
+  color: #4C7766;
+}
+
+.navbar-nav .nav-link {
+  color: #4C7766;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.navbar-nav .nav-link.active {
+  opacity: 1;
+}
+
+/* Hero Section Animations */
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image-container {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  transform: translateX(-100vw);
+  transition: all 2.0s ease;
+  animation: moveImageToCenter 1.5s forwards;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text {
+  opacity: 0;
+  margin-left: 20px;
+  transform: translateX(100vw);
+  animation: moveTextToCenter 1.5s forwards 0.5s;
+}
+
+@keyframes moveImageToCenter {
+  0% {
+    transform: translateX(0vw);
+  }
+
+  100% {
+    transform: translateX(-20vw);
+    width: 300px;
+    height: 300px;
+    border-radius: 8px;
+  }
+}
+
+@keyframes moveTextToCenter {
+  0% {
+    opacity: 0;
+    transform: translateX(100vw);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
