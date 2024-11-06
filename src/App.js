@@ -82,10 +82,17 @@ function App() {
             onClick={toggleDarkMode}
             className={`btn btn-secondary ml-2 dark-mode-toggle`}
           >
-            <FontAwesomeIcon icon={darkMode ? faSun : faMoon} />
+            <div className="icon-container" >
+              {/* Dark Mode Toggle Icon */}
+              <div className="dark-mode-icon">
+                <FontAwesomeIcon icon={darkMode ? faSun : faMoon} />
+              </div>
+            </div>
+
           </button>
+
         </div>
-      </nav>
+      </nav >
 
       <header className="hero section">
         <div className="hero-content">
@@ -128,18 +135,20 @@ function App() {
           <h2 className="text-center mb-4">Contact Me</h2>
           <div className="contact-info-card text-center">
             <p>
-              <FontAwesomeIcon icon={faMapMarkerAlt} className="contact-icon" /> Your City, Country
+              <FontAwesomeIcon icon={faMapMarkerAlt} className="contact-icon" /> Fairfax, VA
             </p>
             <p>
-              <FontAwesomeIcon icon={faEnvelope} className="contact-icon" /> your-email@example.com
+              <FontAwesomeIcon icon={faEnvelope} className="contact-icon" /> vishalnenavath1337@gmail.com
             </p>
             <p>
-              <FontAwesomeIcon icon={faPhone} className="contact-icon" /> +1 234 567 8901
+              <FontAwesomeIcon icon={faPhone} className="contact-icon" /> +1 703-298-3056
             </p>
             <p>
-              <FontAwesomeIcon icon={faLinkedin} className="contact-icon" />{' '}
+              {/* <FontAwesomeIcon icon={faLinkedin} className="contact-icon" />{' '} */}
               <a href="https://www.linkedin.com/in/vishal-nenavath-0820641a8/" target="_blank" rel="noopener noreferrer">
-                linkedin.com
+                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
+                  <path fill="#0288d1" d="M8.4,15L8.4,15L8.4,15c2.8,0,4.6-2,4.6-4.5C12.9,7.9,11.3,6,8.5,6S4,7.9,4,10.5C4,13,5.7,15,8.4,15z"></path><rect width="9" height="26" x="4" y="17" fill="#0288d1"></rect><path fill="#0288d1" d="M44,26.5c0-5.2-4.3-9.5-9.5-9.5c-3.1,0-5.8,1.4-7.5,3.7V17h-9v26h9V28l0,0c0-2.2,1.8-4,4-4s4,1.8,4,4v15h9	C44,43,44,28,44,26.5z"></path>
+                </svg>
               </a>
             </p>
           </div>
@@ -149,8 +158,9 @@ function App() {
 
       <footer className="text-center py-3">
         <p>&copy; 2024 My Portfolio</p>
+        <p>Thank You!!!</p>
       </footer>
-    </div>
+    </div >
   );
 }
 
