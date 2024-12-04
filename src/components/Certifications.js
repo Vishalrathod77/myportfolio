@@ -1,7 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAws, faCheckCircle } from '@fortawesome/free-brands-svg-icons';
+import { faAws } from '@fortawesome/free-brands-svg-icons';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
+import './Certifications.css';
 
 const Certifications = () => {
     const certifications = [
@@ -50,15 +51,16 @@ const Certifications = () => {
                                 </div>
                                 <div className="certification-footer">
                                     <span className="credential-id">
-                                        Credential ID: {cert.credentialId}
+                                        ID: {cert.credentialId}
                                     </span>
                                     <a
                                         href={cert.verificationUrl}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="verify-btn"
+                                        className="verify-link"
                                     >
-                                        <FontAwesomeIcon icon={faExternalLinkAlt} /> Verify
+                                        Verify
+                                        <FontAwesomeIcon icon={faExternalLinkAlt} />
                                     </a>
                                 </div>
                             </div>

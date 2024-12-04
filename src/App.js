@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Projects from './components/Projects';
 import Certifications from './components/Certifications';
+import Contact from './components/Contact';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faSun, faMoon, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import profilePic from './profile.jpg';
 import darkLogo from './components/darkmode_logo.png';
 import lightLogo from './components/logo.png';
@@ -218,7 +216,10 @@ function App() {
             <div className="hero-text" data-aos="fade-left" data-aos-duration="1200">
               <h1>Vishal Rathod Nenavath</h1>
               <p className="lead">Full-stack Web Developer</p>
-              <a href="#projects" className="btn btn-primary mt-4 btn-lg">View My Work</a>
+              <a href="#projects" className="view-work-btn">
+                <span>View My Work</span>
+                <FontAwesomeIcon icon={faArrowRight} />
+              </a>
             </div>
           </div>
         </header>
@@ -268,28 +269,10 @@ function App() {
           </div>
         </section>
 
-        <section id="contact" className="contact py-0 section">
+        <section id="contact" className="contact py-5 section">
           <div className="container">
-            <h2 className="text-center mb-4" data-aos="fade-up">Contact Me</h2>
-            <div className="contact-info-card text-center">
-              <p data-aos="fade-up" data-aos-delay="100">
-                <FontAwesomeIcon icon={faMapMarkerAlt} className="contact-icon" /> Fairfax, VA
-              </p>
-              <p data-aos="fade-up" data-aos-delay="200">
-                <FontAwesomeIcon icon={faEnvelope} className="contact-icon" /> vishalnenavath1337@gmail.com
-              </p>
-              <p data-aos="fade-up" data-aos-delay="300">
-                <FontAwesomeIcon icon={faPhone} className="contact-icon" /> +1 703-298-3056
-              </p>
-              <p data-aos="fade-up" data-aos-delay="400">
-                {/* <FontAwesomeIcon icon={faLinkedin} className="contact-icon" />{' '} */}
-                <a href="https://www.linkedin.com/in/vishal-nenavath-0820641a8/" target="_blank" rel="noopener noreferrer">
-                  <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 48 48">
-                    <path fill="#0288d1" d="M8.4,15L8.4,15L8.4,15c2.8,0,4.6-2,4.6-4.5C12.9,7.9,11.3,6,8.5,6S4,7.9,4,10.5C4,13,5.7,15,8.4,15z"></path><rect width="9" height="26" x="4" y="17" fill="#0288d1"></rect><path fill="#0288d1" d="M44,26.5c0-5.2-4.3-9.5-9.5-9.5c-3.1,0-5.8,1.4-7.5,3.7V17h-9v26h9V28l0,0c0-2.2,1.8-4,4-4s4,1.8,4,4v15h9	C44,43,44,28,44,26.5z"></path>
-                  </svg>
-                </a>
-              </p>
-            </div>
+            <h2 className="text-center mb-4" data-aos="fade-up">Get In Touch</h2>
+            <Contact />
           </div>
         </section>
 
@@ -298,7 +281,7 @@ function App() {
           <p>Thank You!!!</p>
         </footer>
       </div>
-    </div >
+    </div>
   );
 }
 
