@@ -1,0 +1,113 @@
+.background-lines {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.grid-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.line {
+  position: absolute;
+  background: rgba(128, 128, 128, 0.3);
+  transition: transform 0.1s ease;
+  will-change: transform;
+}
+
+.horizontal {
+  width: 100%;
+  height: 1px;
+  left: 0;
+  transform-origin: center;
+  animation: waveX 1.5s infinite ease-in-out;
+}
+
+.vertical {
+  height: 100%;
+  width: 1px;
+  top: 0;
+  transform-origin: center;
+  animation: waveY 1.5s infinite ease-in-out;
+}
+
+/* Horizontal lines */
+.horizontal:nth-child(1) { top: 5%; }
+.horizontal:nth-child(2) { top: 12%; }
+.horizontal:nth-child(3) { top: 19%; }
+.horizontal:nth-child(4) { top: 26%; }
+.horizontal:nth-child(5) { top: 33%; }
+.horizontal:nth-child(6) { top: 40%; }
+.horizontal:nth-child(7) { top: 47%; }
+.horizontal:nth-child(8) { top: 54%; }
+.horizontal:nth-child(9) { top: 61%; }
+.horizontal:nth-child(10) { top: 68%; }
+.horizontal:nth-child(11) { top: 75%; }
+.horizontal:nth-child(12) { top: 82%; }
+.horizontal:nth-child(13) { top: 89%; }
+.horizontal:nth-child(14) { top: 95%; }
+.horizontal:nth-child(15) { top: 100%; }
+
+/* Vertical lines - evenly spaced across full width */
+.vertical:nth-child(16) { left: 0%; }
+.vertical:nth-child(17) { left: 5%; }
+.vertical:nth-child(18) { left: 10%; }
+.vertical:nth-child(19) { left: 15%; }
+.vertical:nth-child(20) { left: 20%; }
+.vertical:nth-child(21) { left: 25%; }
+.vertical:nth-child(22) { left: 30%; }
+.vertical:nth-child(23) { left: 35%; }
+.vertical:nth-child(24) { left: 40%; }
+.vertical:nth-child(25) { left: 45%; }
+.vertical:nth-child(26) { left: 50%; }
+.vertical:nth-child(27) { left: 55%; }
+.vertical:nth-child(28) { left: 60%; }
+.vertical:nth-child(29) { left: 65%; }
+.vertical:nth-child(30) { left: 70%; }
+.vertical:nth-child(31) { left: 75%; }
+.vertical:nth-child(32) { left: 80%; }
+.vertical:nth-child(33) { left: 85%; }
+.vertical:nth-child(34) { left: 90%; }
+.vertical:nth-child(35) { left: 95%; }
+
+/* Animation delays for smoother wave effect */
+.line:nth-child(2n) { animation-delay: 0.1s; }
+.line:nth-child(3n) { animation-delay: 0.2s; }
+.line:nth-child(4n) { animation-delay: 0.3s; }
+.line:nth-child(5n) { animation-delay: 0.4s; }
+
+@keyframes waveX {
+  0% {
+    transform: translateX(calc(var(--mouse-x, 0) * -1.5)) scaleY(1) skewX(-3deg);
+  }
+  50% {
+    transform: translateX(calc(var(--mouse-x, 0) * 1.5)) scaleY(1.5) skewX(3deg);
+  }
+  100% {
+    transform: translateX(calc(var(--mouse-x, 0) * -1.5)) scaleY(1) skewX(-3deg);
+  }
+}
+
+@keyframes waveY {
+  0% {
+    transform: translateY(calc(var(--mouse-y, 0) * -1.5)) scaleX(1) skewY(-3deg);
+  }
+  50% {
+    transform: translateY(calc(var(--mouse-y, 0) * 1.5)) scaleX(1.5) skewY(3deg);
+  }
+  100% {
+    transform: translateY(calc(var(--mouse-y, 0) * -1.5)) scaleX(1) skewY(-3deg);
+  }
+}
+
+/* Dark mode adjustments */
+.dark-mode .line {
+  background: rgba(255, 255, 255, 0.2);
+}
