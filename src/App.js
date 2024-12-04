@@ -97,7 +97,7 @@ function App() {
       <header className="hero section">
         <div className="hero-content">
           <div className="hero-image-container">
-            <img src={profilePic} alt="Vishal Rathod Nenavath" className="hero-image" />
+            <img src={profilePic} alt="Vishal Rathod" className="hero-image" />
           </div>
           <div className="hero-text">
             <h1>Vishal Rathod Nenavath</h1>
