@@ -4,7 +4,7 @@ import Projects from './components/Projects';
 import Certifications from './components/Certifications';
 import Contact from './components/Contact';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faMoon, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faSun, faMoon, faArrowRight, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import profilePic from './profile.jpg';
 import darkLogo from './components/darkmode_logo.png';
 import lightLogo from './components/logo.png';
@@ -18,6 +18,7 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [contentLoaded, setContentLoaded] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
+  const [showTopButton, setShowTopButton] = useState(false);
 
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
@@ -86,11 +87,31 @@ function App() {
     return () => document.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setShowTopButton(true);
+      } else {
+        setShowTopButton(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <div className={`App ${darkMode ? 'dark-mode' : ''} ${contentLoaded ? 'content-loaded' : ''}`}>
       <BackgroundLines />
       {showOverlay && <div className="spider-web-overlay"></div>}
-      
+
       {/* Loading Screen */}
       <div className={`loading-screen ${isLoading ? 'visible' : ''}`}>
         <div className="loader">
@@ -146,11 +167,11 @@ function App() {
           <div className="shape"></div>
           <div className="shape"></div>
           <div className="shape"></div>
-          
+
           {/* Gradient Orbs */}
           <div className="orb"></div>
           <div className="orb"></div>
-          
+
           {/* Particles */}
           {[...Array(20)].map((_, index) => (
             <div key={index} className="particle" />
@@ -163,20 +184,20 @@ function App() {
         <nav className="navbar navbar-expand-lg navbar-light fixed-top">
           <div className="container">
             <a className="navbar-brand" href="#" data-aos="fade-right">
-              <img 
-                src={darkMode ? darkLogo : lightLogo} 
-                alt="Logo" 
+              <img
+                src={darkMode ? darkLogo : lightLogo}
+                alt="Logo"
                 className="navbar-logo"
                 height="40"
               />
             </a>
-            <button 
-              className="navbar-toggler" 
-              type="button" 
-              data-bs-toggle="collapse" 
-              data-bs-target="#navbarNav" 
-              aria-controls="navbarNav" 
-              aria-expanded="false" 
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
               aria-label="Toggle navigation"
             >
               <span className="navbar-toggler-icon"></span>
@@ -190,19 +211,24 @@ function App() {
                   <a className="nav-link" href="#projects" data-aos="fade-down" data-aos-delay="200">Projects</a>
                 </li>
                 <li className="nav-item">
+                  <a className="nav-link" href="#certifications" data-aos="fade-down" data-aos-delay="250">Certifications</a>
+                </li>
+                <li className="nav-item">
                   <a className="nav-link" href="#contact" data-aos="fade-down" data-aos-delay="300">Contact</a>
                 </li>
               </ul>
             </div>
             <button
               onClick={toggleDarkMode}
-              className="btn btn-secondary ms-2 dark-mode-toggle"
+              className="btn dark-mode-toggle"
+              aria-label={darkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
               data-aos="fade-left"
             >
               <div className="icon-container">
-                <div className="dark-mode-icon">
-                  <FontAwesomeIcon icon={darkMode ? faSun : faMoon} />
-                </div>
+                <FontAwesomeIcon 
+                  icon={darkMode ? faSun : faMoon} 
+                  className={`dark-mode-icon ${darkMode ? 'sun' : 'moon'}`}
+                />
               </div>
             </button>
           </div>
@@ -215,7 +241,7 @@ function App() {
             </div>
             <div className="hero-text" data-aos="fade-left" data-aos-duration="1200">
               <h1>Vishal Rathod Nenavath</h1>
-              <p className="lead">Full-stack Web Developer</p>
+              <p className="lead">Full-stack Developer</p>
               <a href="#projects" className="view-work-btn">
                 <span>View My Work</span>
                 <FontAwesomeIcon icon={faArrowRight} />
@@ -228,15 +254,14 @@ function App() {
           <div className="container">
             <h2 className="text-center mb-4" data-aos="fade-up">About Me</h2>
             <p className="lead text-center" data-aos="fade-up" data-aos-delay="100">
-              I'm a full-stack web developer with a passion for building responsive and user-friendly websites...
-            </p>
+              I am a passionate Full Stack Developer with experience building and maintaining robust web applications. My expertise spans both front-end and back-end development, and I thrive in creating seamless, user-friendly digital experiences. From developing dynamic interfaces to optimizing server-side architecture, I approach each project with a focus on performance, scalability, and security.            </p>
 
             <div className="skills-grid">
               {["Python", "Java", "AWS", "HTML", "CSS", "JavaScript", "React JS", "Angular JS", "MongoDB", "SQL", "Flask", "DJango",
-                "Spring Boot"
+                "Spring Boot", "DSA"
               ].map((skill, index) => (
-                <div 
-                  key={skill} 
+                <div
+                  key={skill}
                   className="skill-badge"
                   data-aos="zoom-in"
                   data-aos-delay={index * 100}
@@ -281,6 +306,17 @@ function App() {
           <p>Thank You!!!</p>
         </footer>
       </div>
+      {/* Back to Top Button */}
+      {showTopButton && (
+        <button 
+          className="back-to-top" 
+          onClick={scrollToTop}
+          title="Back to Top"
+          data-aos="fade-up"
+        >
+          <FontAwesomeIcon icon={faArrowUp} />
+        </button>
+      )}
     </div>
   );
 }
