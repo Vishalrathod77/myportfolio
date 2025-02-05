@@ -3,7 +3,7 @@ import './Resume.css';
 
 const Resume = () => {
   const handleDownload = () => {
-    const resumeUrl = process.env.PUBLIC_URL + '/assets/Vishal Resume_new.pdf';
+    const resumeUrl = process.env.PUBLIC_URL + '/assets/Resume_Updated.pdf';
     window.open(resumeUrl, '_blank');
   };
 
